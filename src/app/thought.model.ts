@@ -1,6 +1,7 @@
 export interface Thought {
   id: number;
   title: string;
-  content: string;
+  content?: string;
   createdAt: Date;
+  updatedAt: Date;
 }

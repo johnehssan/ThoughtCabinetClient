@@ -1,1 +1,12 @@
-<p>thought-detail works!</p>
+<div *ngIf="thought">
+  <h2>{{ thought.title }}</h2>
+  <p>{{ thought.content }}</p>
+  <p><strong>Created At:</strong> {{ thought.createdAt | date }}</p>
+  <p><strong>Updated At:</strong> {{ thought.updatedAt | date }}</p>
+
+  <button [routerLink]="['/edit-thought', thought.id]">Edit</button>
+  <button (click)="deleteThought()">Delete</button>
+</div>
+<div *ngIf="!thought">
+  <p>Loading...</p>
+</div>

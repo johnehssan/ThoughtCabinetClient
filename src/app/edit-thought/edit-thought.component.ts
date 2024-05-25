@@ -4,11 +4,11 @@ import { ThoughtService } from '../thought.service';
 import { Thought } from '../thought.model';
 
 @Component({
-  selector: 'app-thought-detail',
-  templateUrl: './thought-detail.component.html',
-  styleUrls: ['./thought-detail.component.css']
+  selector: 'app-edit-thought',
+  templateUrl: './edit-thought.component.html',
+  styleUrls: ['./edit-thought.component.css']
 })
-export class ThoughtDetailComponent implements OnInit {
+export class EditThoughtComponent implements OnInit {
   thought: Thought | undefined;
 
   constructor(
@@ -29,10 +29,10 @@ export class ThoughtDetailComponent implements OnInit {
     );
   }
 
-  deleteThought(): void {
-    if (this.thought && confirm('Are you sure you want to delete this thought?')) {
-      this.thoughtService.deleteThought(this.thought.id).subscribe(() => {
-        this.router.navigate(['/thoughts']);
+  updateThought(): void {
+    if (this.thought) {
+      this.thoughtService.updateThought(this.thought).subscribe(() => {
+        this.router.navigate(['/thoughts', this.thought!.id]);
       });
     }
   }
