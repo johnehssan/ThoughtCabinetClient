@@ -49,6 +49,8 @@ dist/
 build/
 # release
 release/
+# obj
+obj/
 
 # Compiled output
 *.js
@@ -117,6 +119,6 @@ typings/
 release/*.exe
 
 #Packages
-package.g.props
+obj/Debug/package.g.props
 package-lock.json
 package.json
