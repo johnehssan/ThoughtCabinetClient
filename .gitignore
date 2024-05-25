@@ -47,6 +47,8 @@ node_modules/
 dist/
 # Angular Build Directory
 build/
+# release
+release/
 
 # Compiled output
 *.js
