@@ -8,7 +8,9 @@
     <PackageJsonScriptsBuild Condition="$(PackageJsonScriptsBuild) == ''">ng build</PackageJsonScriptsBuild>
     <PackageJsonScriptsWatch Condition="$(PackageJsonScriptsWatch) == ''">ng build --watch --configuration development</PackageJsonScriptsWatch>
     <PackageJsonScriptsTest Condition="$(PackageJsonScriptsTest) == ''">ng test</PackageJsonScriptsTest>
-    <PackageJsonScriptsElectron Condition="$(PackageJsonScriptsElectron) == ''">ng build &amp;&amp; electron .</PackageJsonScriptsElectron>
+    <PackageJsonScriptsLint Condition="$(PackageJsonScriptsLint) == ''">ng lint</PackageJsonScriptsLint>
+    <PackageJsonScriptsE2e Condition="$(PackageJsonScriptsE2e) == ''">ng e2e</PackageJsonScriptsE2e>
+    <PackageJsonScriptsElectron Condition="$(PackageJsonScriptsElectron) == ''">ng build --configuration production &amp;&amp; electron .</PackageJsonScriptsElectron>
     <PackageJsonScriptsPackage Condition="$(PackageJsonScriptsPackage) == ''">electron-packager . ThoughtCabinet --platform=win32 --arch=x64 --out=release --overwrite</PackageJsonScriptsPackage>
     <PackageJsonMain Condition="$(PackageJsonMain) == ''">main.js</PackageJsonMain>
     <PackageJsonPrivate Condition="$(PackageJsonPrivate) == ''">true</PackageJsonPrivate>
