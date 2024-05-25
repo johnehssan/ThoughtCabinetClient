@@ -23,6 +23,8 @@ function createWindow() {
     })
   );
 
+  mainWindow.webContents.openDevTools(); // Open the DevTools.
+
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
