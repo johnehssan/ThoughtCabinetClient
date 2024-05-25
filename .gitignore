@@ -51,6 +51,7 @@ build/
 release/
 
 # Compiled output
+*.js
 *.jsx
 *.tsbuildinfo
 
@@ -115,5 +116,7 @@ typings/
 # Ignore all .exe files in the release directory
 release/*.exe
 
-# All .js files except for main.js
-karma.conf.js
+#Packages
+package.g.props
+package-lock.json
+package.json
