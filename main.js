@@ -6,14 +6,14 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 2560,
-    height: 1440,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
       contextIsolation: false
     }
   });
+
+  mainWindow.maximize(); // Maximize the window
 
   mainWindow.loadURL(
     url.format({
