@@ -1,4 +1,4 @@
- name: Angular
+name: Angular Build and Test
 
 on:
   push:
@@ -11,6 +11,11 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    services:
+      xvfb:
+        image: electronuserland/electron:latest
+        options: --ipc=host
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -18,7 +23,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '14.x'
+        node-version: '20.x' # Set this to your desired Node.js version
 
     - name: Install dependencies
       run: npm install
@@ -31,3 +36,6 @@ jobs:
 
     - name: Build project
       run: npm run build -- --prod
+
+    - name: Build Electron application
+      run: npm run electron:build # Ensure this script exists in your package.json
