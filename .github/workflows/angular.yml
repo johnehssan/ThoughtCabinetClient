@@ -1,4 +1,4 @@
-name: Angular Build and Test
+name: Angular Build and Electron Package
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-package:
 
     runs-on: ubuntu-latest
 
@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
       with:
         node-version: '20.x' # Set this to your desired Node.js version
 
@@ -34,8 +34,8 @@ jobs:
     - name: Run tests
       run: npm run test -- --watch=false --browsers=ChromeHeadless
 
-    - name: Build project
+    - name: Build Angular project
       run: npm run build -- --prod
 
-    - name: Build Electron application
-      run: npm run electron:build # Ensure this script exists in your package.json
+    - name: Build and Package Electron application
+      run: npm run package
