@@ -10,6 +10,7 @@ import { ThoughtDetailComponent } from './thought-detail/thought-detail.componen
 import { CreateThoughtComponent } from './create-thought/create-thought.component';
 import { EditThoughtComponent } from './edit-thought/edit-thought.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { CustomTitleBarComponent } from './custom-title-bar/custom-title-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     ThoughtDetailComponent,
     CreateThoughtComponent,
     EditThoughtComponent,
-    NavBarComponent
+    NavBarComponent,
+    CustomTitleBarComponent
   ],
   imports: [
     BrowserModule,
