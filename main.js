@@ -6,6 +6,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
+    frame: false, // Disable the default frame
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
