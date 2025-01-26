@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  padding-top: 50px; /* Adjust this value based on your title bar height */
+}
+
+.main-content {
+  margin-left: 400px;
+  padding: 20px;
+  width: calc(100% - 200px);
+  background-color: #100e17;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 100px;
+    width: calc(100% - 100px);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+}

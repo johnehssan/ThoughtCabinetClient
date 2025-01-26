@@ -21,7 +21,9 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "typeRoots": [ "node_modules/@types", "src" ], // Specify the root folders for type definitions
+    "types": [ "node", "electron" ] // Specify types to include
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

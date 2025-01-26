@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 
@@ -6,41 +6,54 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    frame: false, // Disable the default frame
+    frame: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
-      contextIsolation: false
-    }
+      preload: path.join(__dirname, 'preload.js'), // Ensure this path is correct
+      contextIsolation: true,
+      enableRemoteModule: false,
+      devTools: true,
+    },
   });
 
   mainWindow.maximize(); // Maximize the window
 
-  mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, 'dist/thought-cabinet-client/browser/index.html'),
-      protocol: 'file:',
-      slashes: true
-    })
-  );
+  mainWindow.loadFile('dist/thought-cabinet-client/browser/index.html');
 
+  mainWindow.setBackgroundColor('#343B4B');
   mainWindow.webContents.openDevTools(); // Open the DevTools.
-
-  mainWindow.on('closed', function () {
-    mainWindow = null;
-  });
 }
+
+// Register IPC handlers for window control
+ipcMain.handle('is-window-maximized', () => {
+  return mainWindow.isMaximized();
+});
+
+ipcMain.on('minimize-window', () => {
+  mainWindow.minimize();
+});
+
+ipcMain.on('maximize-window', () => {
+  mainWindow.maximize();
+});
+
+ipcMain.on('unmaximize-window', () => {
+  mainWindow.unmaximize();
+});
+
+ipcMain.on('close-window', () => {
+  mainWindow.close();
+});
 
 app.on('ready', createWindow);
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    app.quit();
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
   }
 });
 
-app.on('activate', function () {
-  if (mainWindow === null) {
-    createWindow();
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
   }
 });
