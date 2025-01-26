@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  padding-top: 50px; /* Adjust this value based on your title bar height */
+  padding-top: 45px; /* Adjust this value based on your title bar height */
 }
 
 .main-content {
