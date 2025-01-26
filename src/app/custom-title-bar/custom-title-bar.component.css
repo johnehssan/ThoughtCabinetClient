@@ -1,39 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+}
+
 #title-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 30px;
-  background-color: #2C313C; /* BG Color */
-  color: #949AA7; /* Text Color */
-  -webkit-app-region: drag; /* Makes the title-bar draggable */
+  background-color: #2C313C;
+  color: #949AA7;
+  -webkit-app-region: drag;
+  border-radius: 5px;
 }
 
 #menu-bar {
-  -webkit-app-region: no-drag; /* Prevents menu button from being draggable */
+  -webkit-app-region: no-drag;
 }
 
 #nav-button {
+  width: 45px;
+  height: 30px;
   background: none;
   border: none;
   color: #949AA7;
   cursor: pointer;
   font-size: 18px;
-  margin-left: 10px;
 }
 
   #nav-button:hover {
-    color: #4F9FEE; /* Hover color */
+    color: #4F9FEE;
+    background-color: rgba(79, 159, 238, 0.1);
+    border-radius: 5px;
   }
 
 #window-title {
   flex-grow: 1;
   text-align: center;
-  -webkit-app-region: drag; /* Makes the title-bar draggable */
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-app-region: drag;
+  color: #D1D5DB;
 }
 
 #window-controls {
   display: flex;
-  -webkit-app-region: no-drag; /* Prevents buttons from being draggable */
+  -webkit-app-region: no-drag;
 }
 
   #window-controls button {
@@ -41,14 +60,15 @@
     height: 30px;
     border: none;
     background: none;
-    color: #949AA7; /* Text Color */
+    color: #949AA7;
     cursor: pointer;
   }
 
     #window-controls button:hover {
-      background-color: #343848; /* Border Color */
+      background-color: #343848;
     }
 
     #window-controls button:active {
-      background-color: #4F9FEE; /* Mouse Active Color */
+      background-color: #4F9FEE;
+      color: #FFFFFF;
     }
