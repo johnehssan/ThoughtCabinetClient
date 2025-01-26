@@ -1,10 +1,11 @@
-<div class="title-bar">
-  <div class="title-bar-drag-region">
-    <span class="title">Thought Cabinet</span>
+<div id="title-bar">
+  <div id="menu-bar">
+    <button id="nav-button" (click)="toggleNavigation()">&#9776;</button> <!-- Menu button for navigation -->
   </div>
-  <div class="title-bar-controls">
-    <button (click)="minimize()">_</button>
-    <button (click)="toggleMaximize()">[]</button>
-    <button (click)="close()">X</button>
+  <div id="window-title">My App</div> <!-- Title can be dynamic or static -->
+  <div id="window-controls">
+    <button id="minimizeBtn" class="minimizeBtn" (click)="minimize()">_</button>
+    <button id="maxResBtn" class="maxResBtn" (click)="toggleMaximizeRestore()">☐</button>
+    <button id="closeBtn" class="closeBtn" (click)="close()">X</button>
   </div>
 </div>

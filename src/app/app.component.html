@@ -1,16 +1,12 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <div class="container">
-    <app-nav-bar></app-nav-bar>
-    <div class="main-content">
-      <ul>
-        <li><a routerLink="/thoughts">Thoughts</a></li>
-        <li><a routerLink="/create-thought">Create Thought</a></li>
-      </ul>
-      <router-outlet></router-outlet>
-    </div>
+<app-custom-title-bar></app-custom-title-bar>
+<div class="container">
+  <app-nav-bar></app-nav-bar>
+  <div class="main-content">
+    <ul>
+      <li><a routerLink="/thoughts">Thoughts</a></li>
+      <li><a routerLink="/create-thought">Create Thought</a></li>
+    </ul>
+    <router-outlet></router-outlet>
   </div>
 </div>
 <router-outlet></router-outlet>
