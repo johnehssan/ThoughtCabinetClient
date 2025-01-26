@@ -8,22 +8,21 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     frame: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'), // Ensure this path is correct
+      preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       enableRemoteModule: false,
       devTools: true,
     },
   });
 
-  mainWindow.maximize(); // Maximize the window
+  mainWindow.maximize();
 
   mainWindow.loadFile('dist/thought-cabinet-client/browser/index.html');
 
   mainWindow.setBackgroundColor('#343B4B');
-  mainWindow.webContents.openDevTools(); // Open the DevTools.
+  mainWindow.webContents.openDevTools();
 }
 
-// Register IPC handlers for window control
 ipcMain.handle('is-window-maximized', () => {
   return mainWindow.isMaximized();
 });

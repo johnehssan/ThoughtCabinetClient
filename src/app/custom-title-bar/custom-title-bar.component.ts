@@ -43,9 +43,11 @@ export class CustomTitleBarComponent implements OnInit {
     if (window.electronAPI) {
       window.electronAPI.isMaximized().then((result) => {
         this.isMaximized = result;
+
         if (this.isMaximized) {
           window.electronAPI.unmaximizeWindow();
-        } else {
+        }
+        else {
           window.electronAPI.maximizeWindow();
         }
       });
